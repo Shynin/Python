@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analyser Shynin</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body class="app">
+    <script>
+        function myfunc() {
+            $('[name="savedAddr"]').val($('input[name="address"]').val());
+            $('[name="message"]').text("Link accepted!");
+
+        }
+    </script>
+    <form action="" method="post">
+        <input type="hidden" value="nothing" name="savedAddr" />
+        <p>
+            <label for="address">Enter your article link:
+	        <input type="text" name="address">
+            </label>
+        </p>
+        <p>
+            <input class="buTton" type="button" onclick="myfunc()" value="Get the article">
+            <input class="buTton" type="submit" value="Analyse">
+        </p>
+        <p>
+            <label for="second">
+	        <input type="checkbox" name="second">
+                Second script
+            </label>
+        </p>
+        <p>
+            <label for="third">
+	        <input type="checkbox" name="third">
+                Third script
+            </label>
+        </p>
+
+    </form>
+
+    {% if message %}
+    <pre name="message">{{ message }}</pre> {% else %}
+    <pre name="message"></pre> {% endif %}
+
+
+</body>
+
+</html>
